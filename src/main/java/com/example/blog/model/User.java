@@ -1,4 +1,4 @@
-package com.example.blog.modle;
+package com.example.blog.model;
 
 import jakarta.persistence.*;
 import lombok.*;

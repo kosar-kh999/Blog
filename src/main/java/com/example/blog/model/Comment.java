@@ -1,4 +1,4 @@
-package com.example.blog.modle;
+package com.example.blog.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -10,8 +10,6 @@ import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,14 +17,13 @@ import java.util.List;
 @EqualsAndHashCode
 @Data
 @Entity
-@Table(name = "BLOG")
-public class Blog {
+@Table(name = "COMMENT")
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String title;
-    private String content;
+    private String text;
 
     @CreatedDate
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
@@ -38,6 +35,7 @@ public class Blog {
     @JoinColumn(name = "USER_ID")
     private User user;
 
-    @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL)
-    private List<Comment> comments = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "BLOG_ID")
+    private Blog blog;
 }
