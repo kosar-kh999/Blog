@@ -16,6 +16,8 @@ import java.time.LocalDateTime;
 @ToString
 @EqualsAndHashCode
 @Data
+@Entity
+@Table(name = "COMMENT")
 public class Comment {
 
     @Id
@@ -32,4 +34,8 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "BLOG_ID")
+    private Blog blog;
 }

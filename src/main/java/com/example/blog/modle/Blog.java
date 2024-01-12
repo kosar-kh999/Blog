@@ -18,6 +18,8 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 @Data
+@Entity
+@Table(name = "BLOG")
 public class Blog {
 
     @Id

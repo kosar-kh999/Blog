@@ -3,7 +3,6 @@ package com.example.blog.modle;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +11,8 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 @Data
+@Entity
+@Table(name = "`USER`")
 public class User {
 
     @Id
